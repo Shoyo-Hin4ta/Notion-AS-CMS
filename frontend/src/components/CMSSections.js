@@ -1,10 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { Button } from "../components/ui/button"
 
-const CMSSections = () => {
+
+const CMSSections = ({categories}) => {
+
   return (
-    <div>
-        <button>Section - 1</button>
-        <button>Section - 2 </button>
+    <div className='mt-10'>
+        {categories.map((category) => (
+          <Link key={category.name} to={`/category/${category.name}`}>
+            <Button className='mr-4 p-6'>{category.name}</Button>
+          </Link>
+        ))}
     </div>
   )
 }

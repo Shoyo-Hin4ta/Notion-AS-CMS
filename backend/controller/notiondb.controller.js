@@ -7,7 +7,7 @@ export const getStatus = async( req, res ) => {
         const databaseId = process.env.NOTION_DB_API;
         const response = await notion.databases.retrieve({ database_id: databaseId });
         console.log(response);
-        return res.status(200).json(response);
+        return res.status(200).json(response.properties.Status.select.options);
     } catch (error) {
         console.log(error)
     }
