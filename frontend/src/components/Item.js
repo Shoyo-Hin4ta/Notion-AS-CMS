@@ -11,11 +11,15 @@ import {
 import { Button } from "../components/ui/button"
 import { Link } from 'react-router-dom';
 
-const Item = ({pages}) => {
+const Item = ({pages, categoryName}) => {
 
   console.log(pages);
 
   if (pages.length === 0) return <h1>{"No Content / Pages inside"}</h1>
+
+  if (pages.length === 1){
+    <></>
+  }
 
   // console.log(pages[1].properties['Files & media'].files[0].name)
 
@@ -43,8 +47,8 @@ const Item = ({pages}) => {
                 width={400}
               />
             </Link>
-            <CardContent className="grid gap-4">
-              <Button>Open the Blog</Button>
+            <CardContent className="grid place-items-center">
+              <Link to={`/category/${categoryName}/pagecontent/${page.id}`}><Button>Open the Blog</Button></Link>
             </CardContent>
           </Card>
         </div>

@@ -12,7 +12,7 @@ const Category = () => {
     return (
         <>
             {/* <div className='border'>{name + "Category"}</div> */}
-            <Item pages = {pages}/>
+            <Item pages = {pages} categoryName = {name}/>
         </>
     )
 }

@@ -2,6 +2,7 @@ import { Outlet, createBrowserRouter } from "react-router-dom";
 import Body from "./components/Body";
 import Header from "./components/Header";
 import Category from "./components/Category";
+import ContentPage from "./components/ContentPage";
 
 
 function App() {
@@ -23,7 +24,11 @@ export const router = createBrowserRouter([{
     },
     {
       path : "/category/:name",
-      element : <Category />
+      element : <Category />,
+    },
+    {
+      path : "/category/:name/pagecontent/:pageid",
+      element : <ContentPage />
     }
   ]
 }])
