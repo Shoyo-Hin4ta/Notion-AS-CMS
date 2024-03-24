@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import useGetContent from '../utils/useGetContent';
+import useGetPageProperty from '../utils/useGetPageProperty';
 
 const ContentPage = () => {
 
@@ -8,9 +9,13 @@ const ContentPage = () => {
     const {name} = useParams();
 
     const pageData = useGetContent(pageid);
+    // const {pageTitle, created_at} = useGetPageProperty(pageid);
+    const obj = useGetPageProperty(pageid);
+    if(!pageData || !obj) return;
 
-    if(!pageData) return
-    console.log(pageData)
+    const {pageTitle, created_at, img_url} = obj;
+    // console.log(pageData);
+    // console.log(img_url);
     // const pageContent =  pageData.paragraph.rich_text
 
 
@@ -19,25 +24,21 @@ const ContentPage = () => {
         <article className="prose prose-gray mx-auto dark:prose-invert">
           <div className="space-y-2 not-prose">
             <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl lg:leading-[3.5rem]">
-              Taxing Laughter: The Joke Tax Chronicles
+              {pageTitle}
             </h1>
-            <p className="text-gray-500 dark:text-gray-400">Posted on August 24, 2023</p>
+            <p className="text-gray-500 dark:text-gray-400">Posted on {created_at}</p>
           </div>
-          <p>
-            Once upon a time, in a far-off land, there was a very lazy king who spent all day lounging on his throne. One
-            day, his advisors came to him with a problem: the kingdom was running out of money.
-          </p>
          
-          <figure>
+          {img_url === "/placeholder.svg" ? null : (<figure className='mt-4 mb-5'>
             <img
               alt="Cover image"
-              className="aspect-video overflow-hidden rounded-lg object-cover"
+              className="overflow-hidden rounded-lg object-cover"
               height={340}
-              src="/placeholder.svg"
-              width={1250}
+              src={img_url}
+              width="100%"
             />
-            <figcaption>Image caption goes here</figcaption>
-          </figure>
+            {/* <figcaption>Image caption goes here</figcaption> */}
+          </figure>)}
 
           {(
             pageData.map((content, index) => (
@@ -54,7 +55,6 @@ const ContentPage = () => {
                       styleClass += text.annotations.underline ? ' underline' : '';
                       styleClass += text.annotations.strikethrough ? ' line-through' : '';
                     }
-      
                     if (text.text.link) {
                       return (
                         <a
@@ -71,7 +71,7 @@ const ContentPage = () => {
                           key={i}
                           className={'text-base' + styleClass} // Default font size can be adjusted
                         >
-                          {console.log(text.text.content.split('\n'))}
+                          {/* {console.log(text.text.content.split('\n'))} */}
                           {text.text.content.split('\n').map((line, index) => (
                           <React.Fragment key={index}>
                             {line}
@@ -86,11 +86,6 @@ const ContentPage = () => {
               </div>
             ))
           )}
-          <p>
-            The king thought long and hard, and finally came up with
-            <a href="#">a brilliant plan</a>: he would tax the jokes in the kingdom.
-          </p>
-          
         </article>
       </div>
     )

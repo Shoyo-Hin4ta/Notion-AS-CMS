@@ -6,7 +6,6 @@ import Item from './Item';
 const Category = () => {
 
     const {name} = useParams();
-    console.log(name)
 
     const pages = useGetPage(name);
     return (

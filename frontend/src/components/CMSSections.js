@@ -9,7 +9,7 @@ const CMSSections = ({categories}) => {
     <div className='mt-10'>
         {categories.map((category) => (
           <Link key={category.name} to={`/category/${category.name}`}>
-            <Button className='mr-4 p-6'>{category.name}</Button>
+            <Button className='mr-4 p-6 mb-4'>{category.name}</Button>
           </Link>
         ))}
     </div>
