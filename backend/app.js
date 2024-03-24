@@ -21,9 +21,7 @@ app.use(express.urlencoded(
 
 
 import notionRouter from "./routes/notion.routes.js"
-app.get('/', (req, res) => {
-    return res.send("Server up");
-});
+
 
 app.use('/api/notion', notionRouter);
 
