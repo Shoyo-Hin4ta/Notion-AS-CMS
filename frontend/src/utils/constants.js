@@ -1,3 +1,3 @@
 
 
-export const BASE_URL = "http://localhost:8000/api/notion/"
+export const BASE_URL = "https://notion-as-cms-backend.vercel.app/api/notion/"
