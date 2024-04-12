@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header className="flex items-center justify-between h-20 px-4 md:px-6">
-        <h1 className="text-3xl font-bold">Notion as CMS</h1>
+        <Link to="/"><h1 className="text-3xl font-bold">Notion as CMS</h1></Link>
         <nav className="hidden lg:flex space-x-6">
           <Link to = "/" className="text-lg font-medium" href="#">
             Home

@@ -1,4 +1,26 @@
-# Getting Started with Create React App
+# Notion as CMS
+
+In this project, we are using Notion as CMS and getting the content dynamically from our notion account. 
+
+#### In the backend
+
+I am using notion client, which helps me to make api calls directly to my notion content.
+
+I have setup different routes to get database information like how many fields my database have, the pages that are inside the database and the content that is inside those pages.
+
+
+#### In the frontend
+
+I am using ShadCN library for the UI and dynamically fetching the data by calling the backend routes. 
+If a particular field only has a single page, then I rendering it directly and if it has mutliple pages, I am displaying them as cards.
+Also, The rich text that is being used in the notion pages, that css is applied while displaying the pages content too as well as extra line breaks are also being displayed.
+
+### Challenges 
+
+The main challenge was understanding how different component in notion works and what routes should I be hitting to get the right data.
+So, I can work with it.
+
+### Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
