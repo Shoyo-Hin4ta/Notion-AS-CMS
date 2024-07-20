@@ -1,26 +1,25 @@
-import React from 'react'
-import HeroSectionText from './HeroSectionText'
-import CMSSections from './CMSSections'
-import useGetCategories from '../utils/useGetCategories'
-
+// Body.js
+import React from 'react';
+import CMSSections from './CMSSections';
+import useGetCategories from '../utils/useGetCategories';
+import HeroSection from './HeroSectionText';
 
 const Body = () => {
+  const categories = useGetCategories();
+  
+  if (!categories) return null;
 
-    const categories = useGetCategories();
-    if (!categories) return
-    // console.log(categories[0].name)
-    
-    return (
-        <div className ="flex justify-center items-center mt-28  gap-10">
-          <div className= "ml-6">
-              <img alt = "hero-img" className= "h-[450px] w-[600px]" src="https://logosandtypes.com/wp-content/uploads/2020/07/Notion.png"/>
-          </div>
-          <div className ="flex flex-col">
-            <HeroSectionText/>
-            <CMSSections categories = {categories} />
-          </div>
-        </div>
-    )
-}
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-gradient-to-br from-pink-100 via-yellow-100 to-pink-200">
+      <HeroSection />
+      <div className="mt-16">
+        <h2 className="text-3xl font-bold text-pink-700 mb-8 text-center">
+          Explore Categories
+        </h2>
+        <CMSSections categories={categories} />
+      </div>
+    </div>
+  );
+};
 
-export default Body
+export default Body;

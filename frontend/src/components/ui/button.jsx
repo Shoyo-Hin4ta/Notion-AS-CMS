@@ -5,20 +5,20 @@ import { cva } from "class-variance-authority";
 import { cn } from "../../lib/utils.js"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+          "bg-pink-500 text-white shadow hover:bg-pink-600",
         destructive:
-          "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
+          "bg-red-500 text-white shadow-sm hover:bg-red-600",
         outline:
-          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
+          "border border-pink-300 bg-transparent shadow-sm hover:bg-pink-100 hover:text-pink-700",
         secondary:
-          "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+          "bg-yellow-400 text-pink-800 shadow-sm hover:bg-yellow-500",
+        ghost: "hover:bg-pink-100 hover:text-pink-700",
+        link: "text-pink-600 underline-offset-4 hover:underline",
       },
       size: {
         default: "h-9 px-4 py-2",
